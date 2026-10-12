@@ -1,0 +1,1909 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset=utf8>
+  <meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <style>
+    :root {
+      color-scheme: light;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px)
+    }
+
+    html {
+      scroll-padding-top: env(safe-area-inset-top, 0px)
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font: 14px -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: #000
+    }
+
+    img {
+      max-width: 100%
+    }
+
+    [hidden]:not([hidden=until-found i]) {
+      display: none !important
+    }
+  </style>
+</head>
+
+<body>
+  <title>Nirmaan Civil Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap">
+  <style>
+    /* Layout concept: a drawing sheet. A blueprint-blue hero carrying one dimensioned elevation, then ruled paper sections like a specification book. Amber is the only loud colour. */
+    :root {
+      --paper: #F5F7F9;
+      --surface: #FFFFFF;
+      --concrete: #E4E8EC;
+      --ink: #0F1E2E;
+      --muted: #4F5F6F;
+      --line: #CBD3DB;
+      --blue: #0F4C81;
+      --accent: #D98A00;
+      --accent-ink: #1B1200;
+      --accent-text: #8A5400;
+      --focus: #0F4C81;
+      --hero-bg: #0A3358;
+      --hero-fg: #EAF2F9;
+      --hero-soft: #A9BFD3;
+      --hero-line: rgba(234, 242, 249, .62);
+      --hero-grid: rgba(234, 242, 249, .08);
+      --hero-fill: rgba(234, 242, 249, .07);
+      --hero-track: rgba(234, 242, 249, .16);
+      --font-display: "Archivo", "Arial Narrow", Arial, sans-serif;
+      --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+      --gut: clamp(16px, 4vw, 32px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --paper: #0B1620;
+        --surface: #111F2D;
+        --concrete: #142434;
+        --ink: #E8EEF4;
+        --muted: #9DB0C1;
+        --line: #26384A;
+        --blue: #74B3F0;
+        --accent: #F0A81C;
+        --accent-ink: #1B1200;
+        --accent-text: #F0A81C;
+        --focus: #74B3F0;
+        --hero-bg: #081F36;
+        --hero-fg: #EAF2F9;
+        --hero-soft: #9DB5CB;
+        --hero-line: rgba(234, 242, 249, .6);
+        --hero-grid: rgba(234, 242, 249, .07);
+        --hero-fill: rgba(234, 242, 249, .06);
+        --hero-track: rgba(234, 242, 249, .16);
+        color-scheme: dark;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --paper: #0B1620;
+      --surface: #111F2D;
+      --concrete: #142434;
+      --ink: #E8EEF4;
+      --muted: #9DB0C1;
+      --line: #26384A;
+      --blue: #74B3F0;
+      --accent: #F0A81C;
+      --accent-ink: #1B1200;
+      --accent-text: #F0A81C;
+      --focus: #74B3F0;
+      --hero-bg: #081F36;
+      --hero-fg: #EAF2F9;
+      --hero-soft: #9DB5CB;
+      --hero-line: rgba(234, 242, 249, .6);
+      --hero-grid: rgba(234, 242, 249, .07);
+      --hero-fill: rgba(234, 242, 249, .06);
+      --hero-track: rgba(234, 242, 249, .16);
+      color-scheme: dark;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 110px
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 400 1rem/1.6 var(--font-body);
+      -webkit-font-smoothing: antialiased
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    ol,
+    figure,
+    dl,
+    dd {
+      margin: 0
+    }
+
+    a {
+      color: inherit
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px
+    }
+
+    .hero :focus-visible,
+    .est-out :focus-visible {
+      outline-color: var(--accent)
+    }
+
+    .wrap {
+      width: min(100% - 2 * var(--gut), 1200px);
+      margin-inline: auto
+    }
+
+    /* Header */
+    .site {
+      position: sticky;
+      top: env(safe-area-inset-top, 0px);
+      z-index: 20;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .bar {
+      display: flex;
+      align-items: center;
+      gap: 12px 28px;
+      flex-wrap: wrap;
+      padding-block: 12px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none
+    }
+
+    .brand b {
+      display: block;
+      font: 800 1.15rem/1 var(--font-display);
+      font-stretch: 112%;
+      letter-spacing: .02em;
+      text-transform: uppercase
+    }
+
+    .brand small {
+      display: block;
+      margin-top: 4px;
+      font: 500 .68rem/1 var(--font-mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted)
+    }
+
+    .mark {
+      flex: none
+    }
+
+    .mark .o {
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: 2
+    }
+
+    .mark .i {
+      fill: var(--accent)
+    }
+
+    .site nav {
+      display: flex;
+      gap: 4px 22px;
+      margin-left: auto
+    }
+
+    .site nav a {
+      font: 500 .78rem/1 var(--font-mono);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      padding: 8px 0;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap
+    }
+
+    .site nav a:hover {
+      color: var(--ink);
+      border-color: var(--accent)
+    }
+
+    .tools {
+      display: flex;
+      gap: 10px;
+      align-items: center
+    }
+
+    .theme {
+      appearance: none;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 2px;
+      cursor: pointer
+    }
+
+    .theme:hover {
+      border-color: var(--ink)
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 22px;
+      font: 600 .95rem/1 var(--font-body);
+      border: 2px solid transparent;
+      border-radius: 2px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease
+    }
+
+    .btn:hover {
+      transform: translateY(-2px)
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-ink)
+    }
+
+    .btn-ghost {
+      border-color: var(--hero-line);
+      color: var(--hero-fg);
+      background: transparent
+    }
+
+    .btn-ghost:hover {
+      background: var(--hero-fill)
+    }
+
+    .btn-line {
+      border-color: var(--ink);
+      color: var(--ink);
+      background: transparent;
+      padding: 11px 16px;
+      font-size: .85rem
+    }
+
+    .btn-line:hover {
+      background: var(--ink);
+      color: var(--paper)
+    }
+
+    .btn-sm {
+      padding: 11px 18px
+    }
+
+    @media (max-width:900px) {
+      .site nav {
+        order: 3;
+        width: 100%;
+        margin-left: 0;
+        overflow-x: auto;
+        padding-bottom: 2px
+      }
+
+      .tools {
+        margin-left: auto
+      }
+    }
+
+    /* Hero */
+    .hero {
+      background-color: var(--hero-bg);
+      color: var(--hero-fg);
+      background-image: linear-gradient(var(--hero-grid) 1px, transparent 1px), linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
+      background-size: 32px 32px;
+      padding-block: clamp(40px, 7vw, 88px)
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr);
+      gap: clamp(32px, 5vw, 64px);
+      align-items: center
+    }
+
+    .hero .eyebrow {
+      color: var(--accent)
+    }
+
+    .eyebrow {
+      font: 500 .78rem/1 var(--font-mono);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent-text)
+    }
+
+    h1 {
+      margin-top: 18px;
+      font: 800 clamp(2.5rem, 5.6vw, 4.4rem)/1.02 var(--font-display);
+      font-stretch: 112%;
+      letter-spacing: -.01em;
+      text-wrap: balance
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--accent)
+    }
+
+    .hero .sub {
+      margin-top: 22px;
+      max-width: 52ch;
+      font-size: 1.1rem;
+      color: var(--hero-soft)
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px
+    }
+
+    .codes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 34px;
+      list-style: none;
+      padding: 0
+    }
+
+    .codes li {
+      font: 500 .72rem/1 var(--font-mono);
+      letter-spacing: .06em;
+      padding: 8px 10px;
+      border: 1px solid var(--hero-line);
+      color: var(--hero-soft)
+    }
+
+    .sheet {
+      border: 1px solid var(--hero-line);
+      background: var(--hero-fill);
+      min-width: 0
+    }
+
+    .sheet svg {
+      display: block;
+      width: 100%;
+      height: auto
+    }
+
+    .title-block {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      border-top: 1px solid var(--hero-line);
+      font: 500 .68rem/1.35 var(--font-mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--hero-soft)
+    }
+
+    .title-block div {
+      padding: 10px 12px;
+      border-right: 1px solid var(--hero-line);
+      min-width: 0
+    }
+
+    .title-block div:last-child {
+      border-right: 0
+    }
+
+    .title-block b {
+      display: block;
+      color: var(--hero-fg);
+      font-weight: 500
+    }
+
+    .elev .ln {
+      stroke: var(--hero-line);
+      stroke-width: 1.4;
+      fill: none
+    }
+
+    .elev .f {
+      fill: var(--hero-fill)
+    }
+
+    .elev .th {
+      stroke-width: 2.2
+    }
+
+    .elev .fine {
+      stroke-width: 1
+    }
+
+    .elev .gl {
+      stroke: var(--hero-line);
+      stroke-width: .8;
+      stroke-dasharray: 6 5;
+      fill: none;
+      opacity: .55
+    }
+
+    .elev .dim {
+      stroke: var(--accent);
+      stroke-width: 1.1;
+      fill: none
+    }
+
+    .elev .dt {
+      fill: var(--accent);
+      font: 500 13px var(--font-mono)
+    }
+
+    .elev .lt {
+      fill: var(--hero-soft);
+      font: 500 12px var(--font-mono)
+    }
+
+    .elev .bub {
+      fill: none;
+      stroke: var(--hero-line);
+      stroke-width: 1.2
+    }
+
+    .elev .bt {
+      fill: var(--hero-fg);
+      font: 500 12px var(--font-mono);
+      text-anchor: middle
+    }
+
+    .elev .hl {
+      stroke: var(--hero-line);
+      stroke-width: 1;
+      opacity: .7
+    }
+
+    @media (max-width:900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr)
+      }
+    }
+
+    @media (max-width:480px) {
+      .title-block {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .title-block div:first-child {
+        grid-column: 1/-1;
+        border-right: 0;
+        border-bottom: 1px solid var(--hero-line)
+      }
+    }
+
+    /* Commitments */
+    .commit {
+      border-bottom: 1px solid var(--line)
+    }
+
+    .commit ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr))
+    }
+
+    .commit li {
+      padding: 28px 24px 28px 0;
+      margin-right: 24px;
+      border-right: 1px solid var(--line)
+    }
+
+    .commit li:last-child {
+      border-right: 0;
+      margin-right: 0
+    }
+
+    .commit h3 {
+      font: 700 1.05rem/1.2 var(--font-display);
+      font-stretch: 105%
+    }
+
+    .commit p {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: .93rem
+    }
+
+    @media (max-width:900px) {
+      .commit ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+
+      .commit li {
+        border-right: 0;
+        margin-right: 0;
+        padding: 22px 16px 22px 0;
+        border-bottom: 1px solid var(--line)
+      }
+
+      .commit li:nth-last-child(-n+2) {
+        border-bottom: 0
+      }
+    }
+
+    @media (max-width:520px) {
+      .commit ul {
+        grid-template-columns: minmax(0, 1fr)
+      }
+
+      .commit li:nth-last-child(2) {
+        border-bottom: 1px solid var(--line)
+      }
+    }
+
+    /* Sections */
+    .section {
+      padding-block: clamp(56px, 8vw, 104px)
+    }
+
+    .section.alt {
+      background: var(--concrete)
+    }
+
+    .head {
+      display: grid;
+      gap: 14px;
+      max-width: 64ch;
+      margin-bottom: clamp(28px, 4vw, 48px)
+    }
+
+    h2 {
+      font: 800 clamp(1.9rem, 3.6vw, 2.9rem)/1.08 var(--font-display);
+      font-stretch: 108%;
+      letter-spacing: -.01em;
+      text-wrap: balance
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.075rem
+    }
+
+    /* Services */
+    .svc {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+      gap: 36px 32px
+    }
+
+    .svc li {
+      border-top: 2px solid var(--line);
+      padding-top: 20px;
+      transition: border-color .2s ease
+    }
+
+    .svc li:hover {
+      border-top-color: var(--accent)
+    }
+
+    .svc svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--blue);
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: square;
+      stroke-linejoin: miter
+    }
+
+    .svc h3 {
+      margin-top: 14px;
+      font: 700 1.2rem/1.2 var(--font-display);
+      font-stretch: 106%
+    }
+
+    .svc p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .96rem;
+      max-width: 42ch
+    }
+
+    /* Process */
+    .steps {
+      list-style: none;
+      padding: 0;
+      border-top: 1px solid var(--ink)
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) 150px;
+      gap: 6px 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline
+    }
+
+    .step .n {
+      font: 500 .85rem/1 var(--font-mono);
+      color: var(--accent-text)
+    }
+
+    .step h3 {
+      font: 700 1.3rem/1.2 var(--font-display);
+      font-stretch: 106%
+    }
+
+    .step p {
+      margin-top: 4px;
+      color: var(--muted);
+      max-width: 62ch
+    }
+
+    .step .wk {
+      font: 500 .8rem/1.3 var(--font-mono);
+      color: var(--ink);
+      text-align: right
+    }
+
+    .note {
+      margin-top: 20px;
+      font: 500 .78rem/1.5 var(--font-mono);
+      color: var(--muted);
+      letter-spacing: .04em
+    }
+
+    @media (max-width:640px) {
+      .step {
+        grid-template-columns: 40px minmax(0, 1fr)
+      }
+
+      .step .wk {
+        grid-column: 2;
+        text-align: left
+      }
+    }
+
+    /* Specs */
+    .table-wrap {
+      overflow-x: auto;
+      border-top: 1px solid var(--ink)
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 640px
+    }
+
+    th {
+      font: 500 .72rem/1 var(--font-mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      padding: 16px 16px 12px 0;
+      border-bottom: 1px solid var(--line)
+    }
+
+    td {
+      padding: 18px 16px 18px 0;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top
+    }
+
+    td:first-child {
+      font: 700 1rem/1.3 var(--font-display);
+      font-stretch: 104%;
+      width: 22%
+    }
+
+    td.mono {
+      font: 400 .88rem/1.5 var(--font-mono)
+    }
+
+    /* House types */
+    .types {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 28px
+    }
+
+    .type {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      min-width: 0
+    }
+
+    .plan {
+      aspect-ratio: 1/1;
+      max-width: 100%;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .plan svg {
+      width: 100%;
+      height: 100%;
+      display: block
+    }
+
+    .plan .room {
+      fill: var(--paper);
+      stroke: var(--line);
+      stroke-width: .25
+    }
+
+    .plan .wall {
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: .7
+    }
+
+    .plan .rt {
+      fill: var(--muted);
+      font-family: var(--font-mono);
+      text-anchor: middle;
+      dominant-baseline: central
+    }
+
+    .type-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1
+    }
+
+    .type h3 {
+      font: 700 1.2rem/1.2 var(--font-display);
+      font-stretch: 106%
+    }
+
+    .type .spec {
+      font: 500 .75rem/1.5 var(--font-mono);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--accent-text)
+    }
+
+    .type p {
+      color: var(--muted);
+      font-size: .95rem
+    }
+
+    .type .btn {
+      margin-top: auto;
+      align-self: flex-start
+    }
+
+    /* Estimator */
+    .est {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+      border: 1px solid var(--line)
+    }
+
+    .est-in {
+      background: var(--surface);
+      padding: clamp(20px, 3vw, 36px);
+      display: grid;
+      gap: 26px;
+      align-content: start
+    }
+
+    .est-out {
+      background-color: var(--hero-bg);
+      color: var(--hero-fg);
+      background-image: linear-gradient(var(--hero-grid) 1px, transparent 1px), linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
+      background-size: 32px 32px;
+      padding: clamp(20px, 3vw, 36px);
+      min-width: 0
+    }
+
+    fieldset {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      min-width: 0
+    }
+
+    legend,
+    .lab {
+      font: 500 .74rem/1 var(--font-mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%
+    }
+
+    .lab output {
+      color: var(--ink);
+      font-weight: 500
+    }
+
+    input[type=range] {
+      width: 100%;
+      accent-color: var(--accent);
+      height: 28px;
+      margin: 0
+    }
+
+    .seg {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(0, 1fr);
+      border: 1px solid var(--line)
+    }
+
+    .seg label {
+      position: relative;
+      cursor: pointer;
+      border-right: 1px solid var(--line)
+    }
+
+    .seg label:last-child {
+      border-right: 0
+    }
+
+    .seg input {
+      position: absolute;
+      opacity: 0;
+      inset: 0;
+      margin: 0;
+      cursor: pointer
+    }
+
+    .seg span {
+      display: block;
+      text-align: center;
+      padding: 12px 6px;
+      font: 600 .9rem/1.25 var(--font-body)
+    }
+
+    .seg small {
+      display: block;
+      font: 400 .72rem/1.3 var(--font-mono);
+      color: var(--muted);
+      margin-top: 2px
+    }
+
+    .seg input:checked+span {
+      background: var(--ink);
+      color: var(--paper)
+    }
+
+    .seg input:checked+span small {
+      color: var(--paper);
+      opacity: .8
+    }
+
+    .seg input:focus-visible+span {
+      outline: 3px solid var(--focus);
+      outline-offset: -3px
+    }
+
+    .total {
+      margin-top: 10px;
+      font: 800 clamp(2.2rem, 5vw, 3.4rem)/1 var(--font-display);
+      font-stretch: 112%;
+      letter-spacing: -.01em
+    }
+
+    .est-out .k {
+      font: 500 .74rem/1.4 var(--font-mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--hero-soft)
+    }
+
+    .range {
+      margin-top: 10px;
+      font: 500 .85rem/1.5 var(--font-mono);
+      color: var(--hero-soft)
+    }
+
+    .range b {
+      color: var(--accent);
+      font-weight: 500
+    }
+
+    .break {
+      list-style: none;
+      padding: 0;
+      margin-top: 26px;
+      display: grid;
+      gap: 14px
+    }
+
+    .break li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 6px 12px;
+      font-size: .92rem
+    }
+
+    .break .amt {
+      font: 500 .85rem/1.4 var(--font-mono);
+      font-variant-numeric: tabular-nums
+    }
+
+    .track {
+      grid-column: 1/-1;
+      height: 6px;
+      background: var(--hero-track)
+    }
+
+    .fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width .35s ease
+    }
+
+    .est-note {
+      margin-top: 22px;
+      font-size: .82rem;
+      color: var(--hero-soft);
+      max-width: 60ch
+    }
+
+    @media (max-width:900px) {
+      .est {
+        grid-template-columns: minmax(0, 1fr)
+      }
+    }
+
+    /* FAQ */
+    .faq {
+      max-width: 820px;
+      border-top: 1px solid var(--ink)
+    }
+
+    details {
+      border-bottom: 1px solid var(--line)
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 40px 20px 0;
+      position: relative;
+      font: 700 1.12rem/1.3 var(--font-display);
+      font-stretch: 104%
+    }
+
+    summary::-webkit-details-marker {
+      display: none
+    }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      font: 400 1.6rem/1 var(--font-mono);
+      color: var(--accent-text)
+    }
+
+    details[open] summary::after {
+      content: "\2212"
+    }
+
+    details p {
+      padding: 0 40px 22px 0;
+      color: var(--muted);
+      max-width: 66ch
+    }
+
+    /* Contact */
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: clamp(32px, 5vw, 72px)
+    }
+
+    .details {
+      display: grid;
+      gap: 22px;
+      margin-top: 28px
+    }
+
+    .details dt {
+      font: 500 .72rem/1 var(--font-mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px
+    }
+
+    .details dd {
+      font: 600 1.05rem/1.4 var(--font-body);
+      overflow-wrap: anywhere
+    }
+
+    form {
+      display: grid;
+      gap: 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: clamp(20px, 3vw, 32px);
+      min-width: 0
+    }
+
+    .row2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+      min-width: 0
+    }
+
+    .field label {
+      font: 500 .74rem/1 var(--font-mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted)
+    }
+
+    input[type=text],
+    input[type=tel],
+    select,
+    textarea {
+      width: 100%;
+      font: 400 1rem/1.4 var(--font-body);
+      color: var(--ink);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      padding: 12px
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 96px
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--ink)
+    }
+
+    .out {
+      display: grid;
+      gap: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px
+    }
+
+    .out textarea {
+      font: 400 .85rem/1.5 var(--font-mono);
+      min-height: 170px
+    }
+
+    .out .acts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center
+    }
+
+    .status {
+      font: 500 .8rem/1.4 var(--font-mono);
+      color: var(--accent-text)
+    }
+
+    .hint {
+      font-size: .85rem;
+      color: var(--muted)
+    }
+
+    @media (max-width:900px) {
+      .contact {
+        grid-template-columns: minmax(0, 1fr)
+      }
+    }
+
+    @media (max-width:520px) {
+      .row2 {
+        grid-template-columns: minmax(0, 1fr)
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--hero-bg);
+      color: var(--hero-fg);
+      padding-block: 44px
+    }
+
+    .foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 48px;
+      justify-content: space-between;
+      align-items: flex-start
+    }
+
+    footer .brand b {
+      color: var(--hero-fg)
+    }
+
+    footer .brand small {
+      color: var(--hero-soft)
+    }
+
+    footer .mark .o {
+      stroke: var(--hero-fg)
+    }
+
+    footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px
+    }
+
+    footer nav a {
+      font: 500 .76rem/1 var(--font-mono);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--hero-soft);
+      padding: 6px 0
+    }
+
+    footer nav a:hover {
+      color: var(--hero-fg)
+    }
+
+    .legal {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--hero-track);
+      font-size: .82rem;
+      color: var(--hero-soft);
+      max-width: 80ch
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important
+      }
+    }
+  </style>
+
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="#top" aria-label="Nirmaan Civil Engineering, home">
+        <svg class="mark" width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+          <rect class="o" x="1" y="1" width="28" height="28" />
+          <rect class="i" x="9" y="9" width="12" height="12" />
+        </svg>
+        <span><b>Nirmaan</b><small>Civil engineering</small></span>
+      </a>
+      <nav aria-label="Sections">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#specs">Specification</a>
+        <a href="#types">House types</a>
+        <a href="#estimate">Estimate</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="tools">
+        <button class="theme" id="theme" type="button" aria-label="Switch between light and dark theme">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            <circle cx="9" cy="9" r="7" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <path d="M9 2a7 7 0 0 1 0 14z" fill="currentColor" />
+          </svg>
+        </button>
+        <a class="btn btn-primary btn-sm" href="#contact">Free site visit</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">House construction &amp; structural design</p>
+          <h1>Homes engineered from the <em>footing</em> up.</h1>
+          <p class="sub">Nirmaan plans, designs and builds independent houses, duplexes and extensions. One civil
+            engineer is accountable for your project, from the soil test to the day you get the keys.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#contact">Book a free site visit</a>
+            <a class="btn btn-ghost" href="#estimate">Estimate my house cost</a>
+          </div>
+          <ul class="codes" aria-label="Design standards followed">
+            <li>IS 456 RCC design</li>
+            <li>IS 1893 seismic</li>
+            <li>NBC 2016</li>
+            <li>Fe500D steel · M25 concrete</li>
+          </ul>
+        </div>
+
+        <figure class="sheet">
+          <svg class="elev" viewBox="0 0 600 440" role="img"
+            aria-label="Front elevation drawing of a ground plus one floor house with levels and dimensions in metres">
+            <defs>
+              <pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <line x1="0" y1="0" x2="0" y2="9" class="hl" />
+              </pattern>
+            </defs>
+            <!-- column grid -->
+            <path class="gl" d="M96 64V374M264 64V374M432 64V374" />
+            <circle class="bub" cx="96" cy="48" r="13" />
+            <circle class="bub" cx="264" cy="48" r="13" />
+            <circle class="bub" cx="432" cy="48" r="13" />
+            <text class="bt" x="96" y="52">A</text><text class="bt" x="264" y="52">B</text><text class="bt" x="432"
+              y="52">C</text>
+
+            <!-- ground -->
+            <path class="ln th" d="M40 370H520" />
+            <rect x="40" y="370" width="480" height="12" fill="url(#hatch)" />
+
+            <!-- body -->
+            <rect class="ln f" x="96" y="353" width="336" height="17" />
+            <rect class="ln f" x="96" y="269" width="336" height="84" />
+            <rect class="ln f" x="96" y="185" width="336" height="84" />
+            <rect class="ln f" x="180" y="157" width="252" height="28" />
+            <rect class="ln f" x="96" y="118" width="84" height="67" />
+            <path class="ln fine"
+              d="M190 157V185M210 157V185M230 157V185M250 157V185M270 157V185M290 157V185M310 157V185M330 157V185M350 157V185M370 157V185M390 157V185M410 157V185" />
+
+            <!-- stair room -->
+            <rect class="ln fine" x="116" y="136" width="30" height="28" />
+            <path class="ln fine" d="M131 136V164M116 150H146" />
+
+            <!-- ground floor openings -->
+            <rect class="ln fine" x="120" y="295" width="48" height="38" />
+            <path class="ln fine" d="M144 295V333M120 314H168" />
+            <rect class="ln fine" x="360" y="295" width="48" height="38" />
+            <path class="ln fine" d="M384 295V333M360 314H408" />
+            <rect class="ln fine" x="244" y="294" width="40" height="59" />
+            <path class="ln fine" d="M264 294V353M247 305H261M267 305H281" />
+            <path class="ln th" d="M112 289H176M352 289H416M236 288H292" />
+
+            <!-- first floor openings and balcony -->
+            <rect class="ln fine" x="120" y="211" width="48" height="38" />
+            <path class="ln fine" d="M144 211V249M120 230H168" />
+            <rect class="ln fine" x="360" y="211" width="48" height="38" />
+            <path class="ln fine" d="M384 211V249M360 230H408" />
+            <rect class="ln fine" x="240" y="205" width="48" height="64" />
+            <path class="ln fine" d="M264 205V269" />
+            <path class="ln" d="M216 269V241H312V269" />
+            <path class="ln fine"
+              d="M228 241V269M240 241V269M252 241V269M264 241V269M276 241V269M288 241V269M300 241V269" />
+
+            <!-- levels (left) -->
+            <path class="dim" d="M88 353H96M88 269H96M88 185H96M88 118H96" />
+            <text class="lt" x="84" y="357" text-anchor="end">PL +0.60</text>
+            <text class="lt" x="84" y="273" text-anchor="end">FFL +3.60</text>
+            <text class="lt" x="84" y="189" text-anchor="end">RL +6.60</text>
+            <text class="lt" x="84" y="122" text-anchor="end">TOP +9.00</text>
+
+            <!-- vertical dimensions (right) -->
+            <path class="dim" d="M436 370H474M436 353H474M436 269H474M436 185H474M436 157H474" />
+            <path class="dim" d="M466 157V370" />
+            <path class="dim" d="M461 375l10-10M461 358l10-10M461 274l10-10M461 190l10-10M461 162l10-10" />
+            <text class="dt" x="478" y="366">0.60</text>
+            <text class="dt" x="478" y="316">3.00</text>
+            <text class="dt" x="478" y="232">3.00</text>
+            <text class="dt" x="478" y="176">1.00</text>
+            <!-- overall height -->
+            <path class="dim" d="M180 118H534M476 370H534" />
+            <path class="dim" d="M526 118V370" />
+            <path class="dim" d="M521 123l10-10M521 375l10-10" />
+            <text class="dt" x="538" y="250">9.00 m</text>
+
+            <!-- width dimension -->
+            <path class="dim" d="M96 384V406M432 384V406M96 398H432" />
+            <path class="dim" d="M91 403l10-10M427 403l10-10" />
+            <text class="dt" x="264" y="425" text-anchor="middle">12.00 m</text>
+          </svg>
+          <figcaption class="title-block">
+            <div><b>Front elevation</b>Sheet A-01</div>
+            <div><b>G + 1 RCC frame</b>Scale 1:100</div>
+            <div><b>Plot 30 × 40 ft</b>Levels in metres</div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="commit" aria-label="How we work">
+      <div class="wrap">
+        <ul>
+          <li>
+            <h3>Free site visit</h3>
+            <p>We walk the plot, take measurements and tell you what is possible before you pay anything.</p>
+          </li>
+          <li>
+            <h3>Itemised BOQ</h3>
+            <p>Every quantity and rate is on paper before the first brick is ordered.</p>
+          </li>
+          <li>
+            <h3>Stage-wise payment</h3>
+            <p>You pay as each stage is finished and checked, not in advance.</p>
+          </li>
+          <li>
+            <h3>Cube-tested concrete</h3>
+            <p>Samples are cast on site and tested at 7 and 28 days.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Scope of work</p>
+          <h2>Everything a house needs, under one engineer.</h2>
+          <p class="lead">From the first survey to the last coat of paint, each trade is planned and supervised by the
+            same person, so drawings, site and budget stay in agreement.</p>
+        </div>
+        <ul class="svc">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="5" />
+              <path d="M12 2v6M12 16v6M2 12h6M16 12h6" />
+            </svg>
+            <h3>Survey and soil testing</h3>
+            <p>Boundary and level survey, plus a soil bearing check, so the foundation is sized to the ground and not to
+              a guess.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" />
+              <path d="M3 11h8V3M11 21v-6h10M15 15V9h6" />
+            </svg>
+            <h3>Planning and layouts</h3>
+            <p>Floor plans for your plot, such as 20×50, 30×40 or 40×60 ft, with ventilation, parking and Vastu
+              preferences worked in.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 5h18M3 10h18M6 5v16M18 5v16M12 10v11" />
+            </svg>
+            <h3>Structural design</h3>
+            <p>RCC frame designed to IS 456 and IS 1893. Footing, column, beam and slab drawings are issued before work
+              starts.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 3h9l4 4v14H6z" />
+              <path d="M9 14l2 2 4-4" />
+            </svg>
+            <h3>Approvals and paperwork</h3>
+            <p>Map sanction from your local body, utility connections and the completion certificate. We prepare the
+              files and follow them up.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3v10M8 13h8M5 17h14M2 21h20" />
+            </svg>
+            <h3>Foundation and RCC</h3>
+            <p>Excavation, PCC, footings, plinth beam, columns and slabs, with cover blocks, bar bending and curing
+              checked at every pour.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="5" />
+              <rect x="3" y="14" width="18" height="5" />
+              <path d="M10 5v5M16 14v5M6 14v5" />
+            </svg>
+            <h3>Masonry and plaster</h3>
+            <p>Brick or AAC block walls with internal and external plaster. Line, level and plumb are checked on every
+              floor.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 6h10a4 4 0 0 1 4 4v10" />
+              <path d="M2 3v6M14 20h6" />
+            </svg>
+            <h3>Plumbing and electrical</h3>
+            <p>Concealed piping, drainage with proper slope, conduits and the distribution board, all planned before the
+              walls are closed.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="3" width="14" height="5" />
+              <path d="M18 5.5h2V11H11v3" />
+              <rect x="9.5" y="14" width="3" height="7" />
+            </svg>
+            <h3>Waterproofing and finishing</h3>
+            <p>Terrace, bathroom and sunken-slab waterproofing, then flooring, tiling, putty, paint and woodwork.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 21V11h16v10M2 21h20M8 11V7h8v4M12 3v4M10 5l2-2 2 2" />
+            </svg>
+            <h3>Renovation and extension</h3>
+            <p>Adding a floor, re-planning rooms, repairing leakage and cracks. Every job starts with a check of what
+              the existing structure can carry.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section alt" id="process">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Construction sequence</p>
+          <h2>Eight stages, each checked before the next begins.</h2>
+          <p class="lead">Durations are typical for a G+1 house of about 2,000 sq ft in total. Stages overlap, and the
+            monsoon can pause outdoor work.</p>
+        </div>
+        <ol class="steps">
+          <li class="step"><span class="n">01</span>
+            <div>
+              <h3>Site visit and survey</h3>
+              <p>Plot measurement, road and drain levels, neighbouring structures and a soil test.</p>
+            </div><span class="wk">Days 1 to 3</span>
+          </li>
+          <li class="step"><span class="n">02</span>
+            <div>
+              <h3>Design and drawings</h3>
+              <p>Plan, elevation and structural drawings. You approve them before any digging.</p>
+            </div><span class="wk">Weeks 1 to 3</span>
+          </li>
+          <li class="step"><span class="n">03</span>
+            <div>
+              <h3>Approvals and BOQ</h3>
+              <p>Map sanction is applied for while the itemised quantity sheet fixes the price.</p>
+            </div><span class="wk">Weeks 3 to 6</span>
+          </li>
+          <li class="step"><span class="n">04</span>
+            <div>
+              <h3>Foundation and plinth</h3>
+              <p>Excavation, PCC, footings, plinth beam, backfilling and anti-termite treatment.</p>
+            </div><span class="wk">Weeks 6 to 10</span>
+          </li>
+          <li class="step"><span class="n">05</span>
+            <div>
+              <h3>RCC structure</h3>
+              <p>Columns, beams and slab for each floor, with cube samples and 7 to 14 days of curing.</p>
+            </div><span class="wk">Weeks 10 to 22</span>
+          </li>
+          <li class="step"><span class="n">06</span>
+            <div>
+              <h3>Masonry, plaster and services</h3>
+              <p>Walls, concealed plumbing and electrical conduits, then plaster and terrace waterproofing.</p>
+            </div><span class="wk">Weeks 20 to 30</span>
+          </li>
+          <li class="step"><span class="n">07</span>
+            <div>
+              <h3>Finishing</h3>
+              <p>Flooring, tiling, doors and windows, putty, paint, fixtures and fittings.</p>
+            </div><span class="wk">Weeks 28 to 38</span>
+          </li>
+          <li class="step"><span class="n">08</span>
+            <div>
+              <h3>Handover</h3>
+              <p>Snag list closed, as-built drawings issued and completion certificate filed.</p>
+            </div><span class="wk">Week 38 onward</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="specs">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Specification</p>
+          <h2>What goes into the structure, and how we check it.</h2>
+          <p class="lead">Typical specification for a framed RCC house. Your drawings and BOQ state the exact grades for
+            your plot.</p>
+        </div>
+        <div class="table-wrap" tabindex="0" aria-label="Specification table, scrolls sideways on small screens">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Element</th>
+                <th scope="col">Typical specification</th>
+                <th scope="col">Checked by</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Footings and columns</td>
+                <td class="mono">M25 concrete, Fe500D steel, 50 mm cover in footings, 40 mm in columns</td>
+                <td>Bar schedule check before each pour. Cube tests at 7 and 28 days.</td>
+              </tr>
+              <tr>
+                <td>Beams and slabs</td>
+                <td class="mono">M25 concrete, 150 mm slab, 25 mm cover in beams, 20 mm in slabs</td>
+                <td>Shuttering level, cover blocks and bar spacing checked before casting.</td>
+              </tr>
+              <tr>
+                <td>Walls</td>
+                <td class="mono">Burnt clay brick or AAC block, 230 mm external, 115 mm internal</td>
+                <td>Plumb and line checked at every lift of work.</td>
+              </tr>
+              <tr>
+                <td>Plaster</td>
+                <td class="mono">Cement-sand mortar, 12 mm internal, 20 mm external</td>
+                <td>Straight-edge check for flatness and a tap test for hollow patches.</td>
+              </tr>
+              <tr>
+                <td>Terrace waterproofing</td>
+                <td class="mono">Slope to outlets, membrane or crystalline treatment, protective screed</td>
+                <td>48-hour ponding test before tiling.</td>
+              </tr>
+              <tr>
+                <td>Curing</td>
+                <td class="mono">Continuous wet curing, 7 to 14 days depending on cement type</td>
+                <td>Daily site log signed by the supervisor.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="types">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">House types</p>
+          <h2>Common plot sizes, and how we plan them.</h2>
+          <p class="lead">These ground-floor layouts show how we typically use each plot. Your own plan is drawn around
+            your family, your road side and your orientation.</p>
+        </div>
+        <div class="types">
+          <article class="type">
+            <div class="plan" data-plan="a"></div>
+            <div class="type-body">
+              <p class="spec">20 × 50 ft plot · G+1 · 1,000 sq ft per floor</p>
+              <h3>Narrow-plot family home</h3>
+              <p>Parking and living at the front, a staircase in the middle and a rear court that brings light and air
+                into a long, narrow plot.</p>
+              <button class="btn btn-line" type="button" data-area="1000" data-floors="2">Estimate this house</button>
+            </div>
+          </article>
+          <article class="type">
+            <div class="plan" data-plan="b"></div>
+            <div class="type-body">
+              <p class="spec">30 × 40 ft plot · G+1 · 1,200 sq ft per floor</p>
+              <h3>Compact duplex</h3>
+              <p>An open living and dining core with a kitchen and stair on the side wall, and bedrooms stacked above
+                each other for clean structural loads.</p>
+              <button class="btn btn-line" type="button" data-area="1200" data-floors="2">Estimate this house</button>
+            </div>
+          </article>
+          <article class="type">
+            <div class="plan" data-plan="c"></div>
+            <div class="type-body">
+              <p class="spec">40 × 60 ft plot · G+1 · 1,700 sq ft per floor</p>
+              <h3>Independent house with parking</h3>
+              <p>A covered car bay beside the porch, a separate kitchen and utility zone and two bedrooms on the quiet
+                rear side.</p>
+              <button class="btn btn-line" type="button" data-area="1700" data-floors="2">Estimate this house</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="estimate">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Cost estimator</p>
+          <h2>Get a ballpark figure in ten seconds.</h2>
+          <p class="lead">Move the sliders. The estimate shows how the money is usually spread across the stages of
+            construction.</p>
+        </div>
+        <div class="est">
+          <form class="est-in" id="est-form" onsubmit="return false" aria-label="Cost estimator inputs">
+            <div>
+              <div class="lab"><label for="area">Built-up area per floor</label><output id="areaOut" for="area">1,000 sq
+                  ft</output></div>
+              <input type="range" id="area" min="400" max="3000" step="50" value="1000">
+            </div>
+            <fieldset>
+              <legend>Floors</legend>
+              <div class="seg">
+                <label><input type="radio" name="floors" value="1"><span>G<small>1 floor</small></span></label>
+                <label><input type="radio" name="floors" value="2" checked><span>G+1<small>2
+                      floors</small></span></label>
+                <label><input type="radio" name="floors" value="3"><span>G+2<small>3 floors</small></span></label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Finish level</legend>
+              <div class="seg">
+                <label><input type="radio" name="tier" value="1800"><span>Basic<small>₹1,800 / sq
+                      ft</small></span></label>
+                <label><input type="radio" name="tier" value="2200" checked><span>Standard<small>₹2,200 / sq
+                      ft</small></span></label>
+                <label><input type="radio" name="tier" value="2800"><span>Premium<small>₹2,800 / sq
+                      ft</small></span></label>
+              </div>
+            </fieldset>
+          </form>
+          <div class="est-out" aria-live="polite">
+            <p class="k">Indicative construction cost</p>
+            <p class="total" id="total">₹ 44.0 lakh</p>
+            <p class="range" id="range">Likely range <b>₹ 40.5 to 47.5 lakh</b> · 2,000 sq ft built-up · about 40 weeks
+            </p>
+            <ul class="break" id="break"></ul>
+            <p class="est-note">Rates are indicative for a framed RCC house on normal soil. They exclude land, boundary
+              wall, lift, furniture and approval fees. Your itemised BOQ fixes the real figure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="faq">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Questions</p>
+          <h2>Before you break ground.</h2>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>Does a small house really need a structural design?</summary>
+            <p>Yes. Footing size depends on the soil, and column and beam sizes depend on the loads. A drawing issued
+              before work starts costs very little compared with repairing cracks or strengthening a frame later.</p>
+          </details>
+          <details>
+            <summary>Which approvals will I need?</summary>
+            <p>Usually a building permission or map sanction from your local municipal body before construction, utility
+              connections during construction and a completion certificate afterward. Requirements vary by city, and we
+              confirm them for your plot at the first visit.</p>
+          </details>
+          <details>
+            <summary>How do payments work?</summary>
+            <p>Payments are tied to finished stages such as plinth, each slab, plastering and finishing. There is no
+              large advance, and each stage is measured against the BOQ before it is billed.</p>
+          </details>
+          <details>
+            <summary>Can I use my own architect, materials or contractors?</summary>
+            <p>Yes. We can work from your architect's plan, check it structurally, and supervise the build. If you want
+              specific materials or trades, we will tell you plainly what that does to cost and schedule.</p>
+          </details>
+          <details>
+            <summary>How long does a house take to build?</summary>
+            <p>A G+1 house of about 2,000 sq ft in total typically takes 9 to 10 months from the first site visit to
+              handover, including design and approvals. Heavy rain and delayed sanctions are the usual causes of extra
+              time.</p>
+          </details>
+          <details>
+            <summary>Do you take on renovation and extension work?</summary>
+            <p>Yes. We first check the foundation and frame of the existing house, then plan the new floor or the
+              changes so the old and new structure work together.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap contact">
+        <div>
+          <p class="eyebrow">Start a project</p>
+          <h2 style="margin-top:14px">Tell us about your plot.</h2>
+          <p class="lead" style="margin-top:14px">Share a few details and we will propose a time to visit the site. The
+            visit and the first conversation are free.</p>
+          <dl class="details">
+            <div>
+              <dt>Engineer Name</dt>
+              <dd>Jitendra Vishwakarma</dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd>+91 9098055145</dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd>jvishwakarma485@gmail.com</dd>
+            </div>
+            <div>
+              <dt>Office</dt>
+              <dd>256, Kasturibag colony, Ujjain, Madhya Pradesh</dd>
+            </div>
+            <div>
+              <dt>Hours</dt>
+              <dd>Monday to Saturday, 9:00 to 18:00</dd>
+            </div>
+          </dl>
+        </div>
+        <form id="enquiry" aria-label="Project enquiry">
+          <div class="row2">
+            <div class="field"><label for="f-name">Your name</label><input type="text" id="f-name" autocomplete="name"
+                required></div>
+            <div class="field"><label for="f-phone">Phone</label><input type="tel" id="f-phone" autocomplete="tel"
+                required></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="f-work">Type of work</label>
+              <select id="f-work">
+                <option>New house construction</option>
+                <option>Extension or extra floor</option>
+                <option>Renovation or repair</option>
+                <option>Plan and structural drawings only</option>
+                <option>Cost estimate only</option>
+              </select>
+            </div>
+            <div class="field"><label for="f-plot">Plot size</label>
+              <select id="f-plot">
+                <option>20 × 50 ft</option>
+                <option selected>30 × 40 ft</option>
+                <option>40 × 60 ft</option>
+                <option>Other size</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label for="f-msg">Anything we should know</label><textarea id="f-msg"
+              placeholder="Number of bedrooms, road side, budget, when you want to start"></textarea></div>
+          <button class="btn btn-primary" type="submit">Prepare my enquiry</button>
+          <div class="out" id="out" hidden>
+            <p class="hint">Copy this message and send it to us by WhatsApp or email using the details on this page.</p>
+            <textarea id="out-text" readonly aria-label="Your enquiry message"></textarea>
+            <div class="acts"><button class="btn btn-line" type="button" id="copy">Copy message</button><span
+                class="status" id="status" role="status"></span></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <a class="brand" href="#top" aria-label="Nirmaan Civil Engineering, back to top">
+          <svg class="mark" width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+            <rect class="o" x="1" y="1" width="28" height="28" />
+            <rect class="i" x="9" y="9" width="12" height="12" />
+          </svg>
+          <span><b>Nirmaan</b><small>Civil engineering</small></span>
+        </a>
+        <nav aria-label="Footer">
+          <a href="#services">Services</a><a href="#process">Process</a><a href="#specs">Specification</a><a
+            href="#types">House types</a><a href="#estimate">Estimate</a><a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <p class="legal">© 2026 Nirmaan Civil Engineering. Drawings, rates and durations on this page are indicative.
+        Final design, cost and schedule are fixed in your signed drawings and BOQ.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      /* theme toggle */
+      var root = document.documentElement;
+      document.getElementById('theme').addEventListener('click', function () {
+        var cur = root.getAttribute('data-theme');
+        if (!cur) { cur = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; }
+        root.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+      });
+
+      /* floor plans, drawn in feet, road side at the bottom */
+      var plans = {
+        a: { w: 20, d: 50, r: [[0, 40, 20, 10, 'PARKING'], [0, 28, 20, 12, 'LIVING'], [0, 18, 10, 10, 'STAIR'], [10, 18, 10, 10, 'KIT.'], [0, 6, 13, 12, 'BED 1'], [13, 6, 7, 12, 'WC'], [0, 0, 20, 6, 'COURT']] },
+        b: { w: 30, d: 40, r: [[0, 32, 30, 8, 'PORCH'], [0, 20, 18, 12, 'LIVING'], [18, 22, 12, 10, 'STAIR'], [18, 10, 12, 12, 'KITCHEN'], [0, 10, 18, 10, 'DINING'], [0, 0, 15, 10, 'BED 1'], [15, 0, 6, 10, 'WC'], [21, 0, 9, 10, 'BED 2']] },
+        c: { w: 40, d: 60, r: [[0, 50, 24, 10, 'PARKING'], [24, 50, 16, 10, 'PORCH'], [0, 32, 24, 18, 'LIVING'], [24, 38, 16, 12, 'STAIR'], [24, 26, 16, 12, 'DINING'], [0, 20, 24, 12, 'KITCHEN'], [0, 0, 18, 20, 'BED 1'], [18, 0, 6, 12, 'WC'], [18, 12, 6, 8, ''], [24, 0, 16, 26, 'BED 2']] }
+      };
+      document.querySelectorAll('[data-plan]').forEach(function (el) {
+        var p = plans[el.getAttribute('data-plan')]; if (!p) return;
+        var pad = 3, M = Math.max(p.w, p.d), fs = (M * 0.045).toFixed(2);
+        var s = '<svg viewBox="' + (-pad) + ' ' + (-pad) + ' ' + (p.w + pad * 2) + ' ' + (p.d + pad * 2 + 2) + '" role="img" aria-label="Ground floor plan of a ' + p.w + ' by ' + p.d + ' foot plot">';
+        p.r.forEach(function (r) {
+          s += '<rect class="room" x="' + r[0] + '" y="' + r[1] + '" width="' + r[2] + '" height="' + r[3] + '"/>';
+          if (r[4]) s += '<text class="rt" font-size="' + fs + '" x="' + (r[0] + r[2] / 2) + '" y="' + (r[1] + r[3] / 2) + '">' + r[4] + '</text>';
+        });
+        s += '<rect class="wall" x="0" y="0" width="' + p.w + '" height="' + p.d + '"/>';
+        s += '<text class="rt" font-size="' + (fs * 0.85).toFixed(2) + '" x="' + (p.w / 2) + '" y="' + (p.d + 2.6) + '">ROAD SIDE</text></svg>';
+        el.innerHTML = s;
+      });
+
+      /* estimator */
+      var stages = [['Foundation and plinth', 14], ['RCC structure', 32], ['Masonry and plaster', 14], ['Plumbing and electrical', 12], ['Flooring and tiles', 12], ['Doors, windows, woodwork', 8], ['Paint and finishing', 8]];
+      var area = document.getElementById('area'), areaOut = document.getElementById('areaOut'),
+        total = document.getElementById('total'), range = document.getElementById('range'), brk = document.getElementById('break');
+      function inr(n) {
+        if (n >= 1e7) return '₹ ' + (n / 1e7).toFixed(2) + ' crore';
+        return '₹ ' + (n / 1e5).toFixed(1) + ' lakh';
+      }
+      function short(n) { return n >= 1e7 ? (n / 1e7).toFixed(2) + ' crore' : (n / 1e5).toFixed(1) + ' lakh'; }
+      function val(name) { var e = document.querySelector('input[name="' + name + '"]:checked'); return e ? Number(e.value) : 0; }
+      function update() {
+        var a = Number(area.value), fl = val('floors'), rate = val('tier'), tot = a * fl * rate, sq = a * fl;
+        areaOut.textContent = a.toLocaleString('en-IN') + ' sq ft';
+        total.textContent = inr(tot);
+        var weeks = Math.round(20 + sq / 100);
+        range.innerHTML = 'Likely range <b>₹ ' + short(tot * 0.92) + ' to ' + short(tot * 1.08) + '</b> · ' + sq.toLocaleString('en-IN') + ' sq ft built-up · about ' + weeks + ' weeks';
+        brk.innerHTML = stages.map(function (s) {
+          return '<li><span>' + s[0] + '</span><span class="amt">' + inr(tot * s[1] / 100) + '</span><div class="track"><div class="fill" style="width:' + s[1] * 2.6 + '%"></div></div></li>';
+        }).join('');
+      }
+      document.getElementById('est-form').addEventListener('input', update);
+      document.getElementById('est-form').addEventListener('change', update);
+      document.querySelectorAll('[data-area]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          area.value = b.getAttribute('data-area');
+          var f = document.querySelector('input[name="floors"][value="' + b.getAttribute('data-floors') + '"]');
+          if (f) f.checked = true;
+          update();
+          document.getElementById('estimate').scrollIntoView();
+        });
+      });
+      update();
+
+      /* enquiry: builds a message the visitor copies and sends */
+      var form = document.getElementById('enquiry'), out = document.getElementById('out'),
+        txt = document.getElementById('out-text'), status = document.getElementById('status');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var g = function (id) { return document.getElementById(id).value.trim(); };
+        var m = 'Hello Nirmaan Civil Engineering,\n\nI would like a free site visit.\n\n' +
+          'Name: ' + g('f-name') + '\nPhone: ' + g('f-phone') + '\nWork: ' + g('f-work') + '\nPlot size: ' + g('f-plot') +
+          (g('f-msg') ? '\nDetails: ' + g('f-msg') : '') + '\n\nThank you.';
+        txt.value = m; out.hidden = false; status.textContent = '';
+        out.scrollIntoView({ block: 'nearest' });
+      });
+      document.getElementById('copy').addEventListener('click', function () {
+        function fallback() { txt.focus(); txt.select(); status.textContent = 'Selected. Press Ctrl+C or Cmd+C to copy.'; }
+        try {
+          navigator.clipboard.writeText(txt.value).then(function () { status.textContent = 'Copied.'; }, fallback);
+        } catch (err) { fallback(); }
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
